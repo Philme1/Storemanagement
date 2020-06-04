@@ -1,0 +1,25 @@
+
+<% products.forEach(product => { %>
+  <div class="container">
+    <div class="product-details">
+      <div class="product-name">
+        <h4>Product Name:</h4>
+        <p><a href="/products/<%= product.id %>"><%= product.name %></a></p>
+      </div>
+      <div class="product-row">
+        <div class="product-row-end">
+          <h3>Price:</h3>
+          <p>#<%= product.price %></p>
+        </div>
+        <div class="product-row-end">
+          <h3>Available:</h3>
+          <p><%= product.availableItem %></p>
+        </div>
+        <div class="product-row-end">
+          <h3>Date Added:</h3>
+          <p><em><%= product.createdAt.toDateString() %></em></p>
+        </div>
+    </div>
+    </div>
+  </div>
+<% }) %>

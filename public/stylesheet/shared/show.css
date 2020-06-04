@@ -1,0 +1,59 @@
+
+
+.show-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 1.5rem;
+}
+
+.show-page > div > * {
+  color: azure;
+}
+
+.show-page .description .desc-text {
+  color: azure;
+  font-size: 1.5rem;
+  padding-top: 2rem;
+}
+
+.show-page .product-fields {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 2rem;
+}
+
+.show-page .product-fields .p-name h2 > * {
+  color: rgb(181, 191, 209);
+}
+
+.show-page .product-fields h2 {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.show-page .product-fields h2 > span {
+  padding-left: 5rem;
+  color: aquamarine;
+}
+
+.show-btn {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.show-page .btn-edit {
+  color: black;
+  background-color: burlywood;
+}
+
+.show-page .btn-edit:hover {
+  color: white;
+  background-color: rgb(5, 59, 59);
+  border: 2px solid white;
+}

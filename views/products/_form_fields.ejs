@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="form-new">
+      <div class="new-item">
+        <label>Product Name</label>
+        <input type="text" name="name" value="<%= product.name %>">
+      </div>
+
+      <div class="new-item">
+        <label>Cost Price</label>
+        <input type="number" name="costPrice" value="<%= product.costPrice %>">
+      </div>
+
+      <div class="new-item">
+        <label>Price</label>
+        <input type="number" name="price" min="1" value="<%= product.price %>">
+      </div>
+
+      <div class="new-item">
+        <label>Quantity Purchased</label>
+        <input type="number" name="quantityPurchased" min="1" value="<%= product.quantityPurchased %>">
+      </div>
+
+      
+      <div class="new-item">
+        <label>Purchased Date</label>
+        <input type="date" 
+        name="purchaseDate" 
+        value="<%= product.purchaseDate == null ? '' : product.purchaseDate.toISOString().split('T')[0] %>"
+        >
+      </div>
+      
+      <div class="new-item">
+        <label>Available Items</label>
+        <input type="number" name="availableItem" min="1" value="<%= product.availableItem %>">
+      </div>
+
+      <div class="new-item">
+        <label>Description</label>
+        <textarea name="description"><%= product.description %></textarea>
+      </div>
+  </div>
+</div>

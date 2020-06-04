@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="show-page">
+
+      <div class="description">
+        <div class="desc-text">
+          <h2>Description:</h2> <span><%= product.description %></span> 
+        </div>
+      </div>
+
+      <div class="product-fields">
+        <div class="p-name">
+          <h2>Product Name: <span><%= product.name %></span> </h2>
+        </div>
+        
+          <div> 
+            <h2>Cost Price: <span><%= product.costPrice %></span> </h2>
+          </div>
+
+          <div>
+            <h2>Quantity Purchased: <span><%= product.quantityPurchased %></span> </h2>
+          </div>
+
+          <div>
+            <h2>Available Item: <span><%= product.availableItem %></span> </h2>
+          </div>
+
+          <div>
+            <h2>Purchase Date: <span><%= product.purchaseDate.toDateString() %></span> </h2>
+          </div>
+
+          <div>
+            <h2>Per Price: <span> #<%= product.price %></span> </h2>
+          </div>
+      </div>
+      <div class="show-btn">
+        <a class="btn btn-primary btn-edit" href="/products/<%= product.id %>/edit">Edit</a>
+        <%- include('../partials/deleteForm', { url: `/products/${product.id}` }) %>
+      </div>
+    </div>
+</div>

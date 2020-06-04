@@ -1,0 +1,18 @@
+
+<div class="register">  
+
+ <h1 class="new-form-header">
+  <i class="fas fa-user-plus"></i> Register
+</h1>
+<form action="/users" method="POST">
+  <%- include("_form_fields") %>
+  <div class="new-form-header btn-register">
+    <button type="submit" class="btn btn-primary btn-block">
+      Register
+    </button>
+  </div>
+</form>
+<div class="p-register">
+  <p> <span>Have An Account? </span> <a class="btn btn-primary" href="/users/login">Login</a></p>
+</div>
+</div>

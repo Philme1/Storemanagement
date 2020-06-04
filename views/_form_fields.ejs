@@ -1,0 +1,36 @@
+
+<div class="form-new">
+  <div class="new-item">
+    <label for="username">Username</label>
+    <input
+      type="username"
+      id="username"
+      name="username"
+      class="form-control"
+      placeholder="Enter Username"
+      value="<%= typeof username != 'undefined' ? username : '' %>"
+    />
+  </div>
+  <div class="new-item">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      placeholder="Enter Email"
+      value="<%= typeof email != 'undefined' ? email : '' %>"
+    />
+  </div>
+  <div class="new-item">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      placeholder="Create Password"
+      value="<%= typeof password != 'undefined' ? password : '' %>"
+    />
+  </div>
+</div>

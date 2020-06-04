@@ -1,0 +1,13 @@
+.product-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.product-name {
+  font-size: 1.5rem;
+}
+
+.top {
+  margin-top: 5rem;
+}

@@ -1,0 +1,86 @@
+@import 'shared/header.css';
+@import 'shared/homePage.css';
+@import 'shared/homeForm.css';
+@import 'shared/newForm.css';
+@import 'shared/buttons.css';
+@import 'shared/productIndex.css';
+@import 'shared/show.css';
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0 auth;
+  background: rgb(1, 32, 32);
+}
+
+.errorMessage {
+  color: rgb(228, 145, 145);
+  margin: 0 auto;
+  text-align: center;
+  width: 70%;
+  font-size: 1.5rem;
+}
+
+.errorMessage #delete-btn {
+  font-size: 1.3rem;
+  color: rgb(228, 145, 145);
+  background-color: rgb(1, 32, 32);
+  padding: 0 .8rem;
+  border: 1px solid rgb(228, 145, 145);
+  cursor: pointer;
+  padding-bottom: .2rem;
+}
+
+.container {
+  max-width: 100vh;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+
+}
+
+.page-header {
+  font-size: 2rem;
+  font-weight: 500;
+  color: hsl(200, 100%, 87%);
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+
+.p-register {
+  align-self: center;
+  margin-left: -12rem;
+  margin-top: 1rem;
+}
+
+.p-register p > span {
+  color: azure;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.p-login {
+  align-self: center;
+  margin-left: -9rem;
+  margin-top: 1rem;
+}
+
+.p-login p {
+  margin-left: 1rem;
+}
+
+.p-login p > span {
+  color: azure;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  font-style: italic;
+}

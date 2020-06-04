@@ -1,0 +1,44 @@
+:root {
+  --color-base-hue: 200;
+  --color-text-light: hsl(var(--color-base-hue), 100%, 87%);
+}
+
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 5rem .5rem 3rem ;
+}
+
+.header-title {
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: 200;
+  color: var(--color-text-light);
+}
+
+.header-nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav li {
+  list-style: none;
+}
+
+.header-nav li a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.header-nav li a:hover, .header-title:hover {
+  color: white;
+}
