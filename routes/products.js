@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Product = require("../models/product")
+const Product = require("../models/product");
+const { isLoggedIn, checkProductOwnerShip } = require("../middleware/index");
 
 //Root Route
 router.get("/", async (req, res) => {
@@ -14,14 +15,16 @@ router.get("/", async (req, res) => {
 });
 
 //New Route
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn, (req, res) => {
   res.render("products/new", {product: new Product()})
 });
 
 //Create Route
-router.post("/", async (req, res) => {
+router.post("/", isLoggedIn, async (req, res) => {
   
    const { name, costPrice, price, quantityPurchased, purchaseDate, availableItem, description } = req.body;
+
+   const { username, id } = req.user;
 
     const product = new Product({
     name,
@@ -30,7 +33,8 @@ router.post("/", async (req, res) => {
     quantityPurchased,
     availableItem,
     description,
-    purchaseDate: new Date(purchaseDate)
+    purchaseDate: new Date(purchaseDate),
+    author: {username, id}
   });
 
   try {
@@ -42,7 +46,7 @@ router.post("/", async (req, res) => {
 });
 
 //Show Route Route
-router.get("/:id", async (req, res) => {
+router.get("/:id", isLoggedIn, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
     res.render("products/show", { product: product} )
@@ -52,7 +56,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //Edit Route
-router.get("/:id/edit", async (req, res) => {
+router.get("/:id/edit", checkProductOwnerShip, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
     res.render("products/edit", {product: product})
@@ -62,7 +66,7 @@ router.get("/:id/edit", async (req, res) => {
 });
 
 //Update Route
-router.put("/:id", async (req, res) => {
+router.put("/:id", checkProductOwnerShip, async (req, res) => {
   const { name, costPrice, price, quantityPurchased, purchaseDate, availableItem, description } = req.body;
 
   let product = {name, costPrice, price, quantityPurchased, purchaseDate, availableItem, description};
@@ -78,7 +82,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //Delete Route
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", checkProductOwnerShip, async (req, res) => {
   let product;
   try {
     product = await Product.findById(req.params.id)

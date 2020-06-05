@@ -13,7 +13,7 @@
         </div>
         
           <div> 
-            <h2>Cost Price: <span><%= product.costPrice %></span> </h2>
+            <h2>Cost Price: <span id="price"><%= product.costPrice %></span> </h2>
           </div>
 
           <div>
@@ -29,7 +29,11 @@
           </div>
 
           <div>
-            <h2>Per Price: <span> #<%= product.price %></span> </h2>
+            <h2>Per Price: <span id="price"> #<%= product.price %></span> </h2>
+          </div>
+
+          <div>
+            <h2> <em> Submitted By: </em> <span><%= product.author.username %></span> </h2>
           </div>
       </div>
       <div class="show-btn">

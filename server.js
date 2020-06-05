@@ -24,9 +24,8 @@ db.once("open", () => console.log("Connected To Database"))
 
 
 //Passport Authentication
-const passSecret = process.env.PASSPORT_SECRET;
 app.use(session({
-  secret: passSecret,
+  secret: process.env.PASSPORT_SECRET,
   resave: false,
   saveUninitialized: false
 }));
@@ -51,7 +50,7 @@ app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 app.set("layout", "layouts/layout");
 app.use(expressLayout);
-app.use(express.static("public"));
+app.use(express.static("public/"));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
