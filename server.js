@@ -9,19 +9,19 @@ const localStrategy = require("passport-local").Strategy
 const expressLayout = require("express-ejs-layouts");
 const ejs = require("ejs");
 const methodOverride = require("method-override");
-const mongoose = require("mongoose");
-
+const session = require("express-session");
+const User = require("./models/user");
 
 const app = express();
 
+
 //DATABASE CONNECTION
+const mongoose = require("mongoose");
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false});
 const db = mongoose.connection
 db.on("error", error => console.error(error))
 db.once("open", () => console.log("Connected To Database"))
 
-const session = require("express-session");
-const User = require("./models/user");
 
 //Passport Authentication
 const passSecret = process.env.PASSPORT_SECRET;
@@ -54,6 +54,7 @@ app.use(expressLayout);
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+
 
 //Routes
 app.use("/", require("./routes/index"))

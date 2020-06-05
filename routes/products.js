@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
   
    const { name, costPrice, price, quantityPurchased, purchaseDate, availableItem, description } = req.body;
 
-  const product = new Product({
+    const product = new Product({
     name,
     costPrice,
     price,
@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
 
   try {
     await product.save();
-    res.redirect(`products/${product.id}`);
+    res.redirect(302, `/products/${product.id}`);
   } catch (err) {
     res.render("products/new", {product: product, errorMessage: "Please Enter all Fields"})
   }
@@ -83,13 +83,9 @@ router.delete("/:id", async (req, res) => {
   try {
     product = await Product.findById(req.params.id)
     await product.remove()
-    res.redirect("/products");
+    res.redirect(302, "/");
   } catch (err) {
-    if(product != null) {
-      res.render("products/show", {product: product, errorMessage: "Could not remove this Product"})
-    } else {
-      res.redirect("/")
-    }
+    res.redirect(404, "back", {errorMessage: "Could not remove this product"})
   }
 })
 

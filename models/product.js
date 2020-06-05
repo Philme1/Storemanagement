@@ -6,7 +6,8 @@ const productSchema = new mongoose.Schema({
     required: true
   },
   purchaseDate: {
-    type: Date
+    type: Date,
+    required: true
   },
   quantityPurchased: {
     type: Number,
@@ -32,6 +33,6 @@ const productSchema = new mongoose.Schema({
     type: Date,
     default: Date.now()
   }
-});
+})
 
 module.exports = mongoose.model("Product", productSchema);
